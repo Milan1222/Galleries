@@ -1,21 +1,20 @@
 <template>
   <div id="app">
-  <Login />  
-  <Register />
+    <Navbar />
+    <router-view></router-view>
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Login from './components/Login.vue'
-import Register from './components/Register.vue'
+import Navbar from './components/Navbar.vue'
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-    Login,
-    Register
+    Navbar
+   
   }
 }
 </script>
