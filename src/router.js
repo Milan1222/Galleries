@@ -3,12 +3,14 @@ import VueRouter from 'vue-router';
 import AppGalleries from './components/AppGalleries';
 import Login from './components/Login';
 import Register from './components/Register';
+import MyGalleries from './components/MyGalleries';
 
 Vue.use(VueRouter);
 
 const routes = [
   {path: '/', redirect: '/galleries'},
   {path: '/galleries', name: 'home', component: AppGalleries, meta: {auth: false}},
+  {path: '/my-galleries', name: 'my-galleries', component: MyGalleries},
   {path: '/login', name: 'login', component: Login, meta: {guest: true}},
   {path: '/register',name: 'register',component: Register,meta: {guest: true}}
 ];

@@ -19,7 +19,7 @@
                 <input v-model="user.password" required minlength="8" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
             </div>
             <div class="form-check">
-                <input v-model="user.first_name" type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input v-model="user.terms_and_conditions" type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">I accept terms and conditions</label>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>

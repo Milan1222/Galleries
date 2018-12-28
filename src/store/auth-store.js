@@ -35,9 +35,19 @@ export default {
             authService.setAuthHeaders();
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            commit('SET_DATA', {user: null});
+            commit('SET_DATA', {user: null, token: null});
             router.push({ name: 'login' }); 
-        }
+        },
+        
+
+        async register({ commit }, user) {
+            try {
+              commit('SET_DATA', await authService.register(user));
+              router.push({ name: 'home' });
+            } catch (error) {
+              commit('SET_ERRORS', error);
+            }
+          }
     },
     getters: {
         getUser(state) {

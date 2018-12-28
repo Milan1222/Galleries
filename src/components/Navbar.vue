@@ -23,13 +23,14 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/login">Login</router-link>
+              <router-link class="nav-link" to="/login"  v-if="!user">Login</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/register">Register</router-link>
+              <router-link class="nav-link" to="/register"  v-if="!user">Register</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" role="button">Logout</a>
+              <a href="#"  @click="logoutUser" class="nav-link" v-if="user">Logout</a>
+              <!-- <router-link @click="logoutUser" class="nav-link" role="button" to="/login" v-if="user">Logout</router-link> -->
             </li>
           </ul>
         </div>
@@ -40,8 +41,21 @@
 </template>
 
 <script>
-export default {
+import { mapGetters, mapActions } from 'vuex';
 
+export default {
+  computed: {
+    ...mapGetters({
+      user: 'getUser'
+    })
+  },
+
+  methods: {
+    ...mapActions(['logout']),
+    logoutUser() {
+      this.logout()
+    }
+  }
 }
 </script>
 
